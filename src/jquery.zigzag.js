@@ -21,7 +21,7 @@ along with this program.  If not, see http://www.apache.org/licenses/LICENSE-2.0
 (function($){
 	var ZigZagObj = {
 		init:function(options){
-			$('body').append('<div id="ZigZagLayer"></div>');
+			if($("#ZigZagLayer").length == 0)$('body').append('<div id="ZigZagLayer"></div>');
 			if(options.item_target===undefined)$.error("ZigZagJS need a target !");
 			return this.each(function(){
 				var $this=$(this);
