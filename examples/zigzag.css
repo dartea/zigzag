@@ -1,0 +1,27 @@
+
+#ZigZagLayer{
+	position:absolute;
+	z-index:9999;
+	-webkit-transition:  -webkit-transform .3s ease-in;
+    -moz-transition:  -moz-transform .3s ease-in;
+    -o-transition:   -o-transform .3s ease-in;
+    transition:  -webkit-transform .3s ease-in;
+        
+}
+#ZigZagLayer.scale{
+    -webkit-transform: scaleX(2) scaleY(2);
+    -o-transform: scaleX(2) scaleY(2);
+    -moz-transform: scaleX(2) scaleY(2);
+    transform: scaleX(2) scaleY(2);
+
+   
+}
+
+#ZigZagLayer.noscale{
+    -webkit-transform: scaleX(.5) scaleY(.5);
+    -o-transform: scaleX(.5) scaleY(.5);
+    -moz-transform: scaleX(.5) scaleY(.5);
+    transform: scaleX(.5) scaleY(.5);
+
+   
+}

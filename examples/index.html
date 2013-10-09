@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ZigZag jquery plugin</title>
+
+    
+<style>
+body{
+  margin:0;
+  padding:0;
+  font-family: Verdana,sans-serif;
+  font-size:13px;
+  background-color: #EEE;
+  color:#333;
+}
+ .nt {
+color: #000080;
+}
+.na {
+color: #008080;
+}
+ .s {
+color: #d14;
+}
+#global{
+  max-width:780px;
+  margin:0 auto;
+}
+h1{
+  text-align: center;
+  font-size:40px;
+}
+h2{
+
+  text-align: center;
+  font-size:30px;
+}
+pre{
+  
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+
+ul{
+  width:768px;
+  margin:0 auto;
+  padding:0;
+}
+
+li {
+  
+  padding-top:50px;
+  margin:0 20px;
+  display:inline-block;
+  text-align: center;
+  background: url(imgs/bg_li.png) 0 0 no-repeat;
+  -webkit-transition: all .3s ease-in;
+  -moz-transition:  all .3s ease-in;
+  -o-transition:   all .3s ease-in;
+  transition:  all .3s ease-in;
+}
+li:hover{
+  background-position: 0 -220px;
+}
+.item-content{
+background-color: #EEE;
+}
+
+#ZigZagLayer{
+  text-align: center;
+}
+
+
+#footer{
+  position:fixed;
+  bottom:0;
+  height:30px;
+  width:100%;
+  background-color: #FF0000;
+}
+
+
+
+#player{
+width:100px;
+height:80px;
+margin:150px auto 0 auto;
+}
+#player .cover{
+  width:100px;
+  height:80px;
+  background: url(imgs/playerbg.png) left top no-repeat;
+}
+#player .cover img{
+  width:80px;
+  height:80px;
+}
+
+    </style>
+<link href="zigzag.css" rel="stylesheet" media="screen">
+  </head>
+  <body>
+<div id="global">
+
+    <h1>ZigZag</h1>
+<h2>Usage : </h2>
+<strong>Include script after the jQuery library :</strong>
+<pre>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"/path/to/jquery.zigzag.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</pre>
+<strong>then in your code do:</strong>
+<pre>
+
+     $(".item").ZigZag({
+        direction      : 'top', //can be : top,right,bottom,left
+        item_target    : '#mytargetdiv',//(must be unique)
+        onFinish       : myCallBack //a callback function  calling at the end of animation
+     });
+</pre>
+
+<strong>You can set a callback function :</strong>
+<pre>
+ function myCallBack(item){
+        //do something at the end of animation
+        console.log(item);
+        console.log(item.data());
+  }
+</pre>
+<h2>Examples:</h2>
+<ul>
+<li class="itemtop">
+<div class="item-content">
+<img src="imgs/alb1.png"><br>
+Top Direction
+</div>
+</li>
+
+<li class="itemright">
+  <div class="item-content">
+<img src="imgs/alb2.png"><br>
+Right Direction
+</div>
+</li>
+
+<li class="itembottom">
+  <div class="item-content">
+    <img src="imgs/alb3.png"><br>
+Bottom Direction
+</div>
+</li>
+
+<li class="itemleft">
+  <div class="item-content">
+    <img src="imgs/alb4.png"><br>
+Left Direction
+</div>
+</li>
+
+</ul>
+
+
+<div id="player">
+<div class="cover"></div>
+</div>
+
+
+</div>
+
+
+
+
+    <!-- jQuery -->
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <!-- ZigZag js by DARTEA / dartea.com -->
+    <script src="../src/jquery.zigzag.js"></script>
+    <!-- set options : -->
+    <script type="text/javascript">
+   
+
+     
+
+
+     $(".itemtop").ZigZag({
+        direction      : 'top', //can be : top,right,bottom,left
+        item_target    : '#player',//(only one target is permitted)
+        onFinish       : myCallBack //a callback function  calling at the end of animation
+     });
+
+     $(".itemright").ZigZag({
+        direction      : 'right', //can be : top,right,bottom,left
+        item_target    : '#player',//(only one target is permitted)
+        onFinish       : myCallBack //a callback function  calling at the end of animation
+     });
+     $(".itembottom").ZigZag({
+        direction      : 'bottom', //can be : top,right,bottom,left
+        item_target    : '#player',//(only one target is permitted)
+        onFinish       : myCallBack //a callback function  calling at the end of animation
+     });
+     $(".itemleft").ZigZag({
+        direction      : 'left', //can be : top,right,bottom,left
+        item_target    : '#player',//(only one target is permitted)
+        onFinish       : myCallBack //a callback function  calling at the end of animation
+     });
+
+
+     function myCallBack(item){
+      //console.log(item);
+      var cover_src = item.find('img').attr('src');
+ 
+      $(item.data('item_target')+' .cover').html('<img src="'+cover_src+'">');
+   
+     }
+
+    </script>
+  </body>
+</html>

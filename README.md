@@ -1,6 +1,10 @@
 zigzag
 ======
 
-ZigZag is a free, open-source jQuery plugin for create a simple animation for move an element to a specific target.
+ZigZag is a simple, lightweight jQuery plugin  for create  animation to move html element to a specific target.
+
+see more information on :  /examples/index.html
+
+
 
 
